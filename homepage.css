@@ -1,0 +1,21 @@
+* {
+	margin: 0; 
+	padding: 0; 
+	box-sizing: border-box; 
+}
+
+.bg{
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+
+	background-image: url("assets/background/paper1.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+	background-size: cover; 
+
+	filter: contrast(1.1) brightness(0.95);
+}

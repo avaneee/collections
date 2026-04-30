@@ -1,0 +1,1 @@
+// for this i want to have the main links just moving around and stuff probably? some sort of randomising (one postcard, one scrap, one magnet that people can click on)
