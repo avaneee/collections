@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css properties linked -->
+    <link rel="stylesheet" href="inventory.css">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <title>my collection | inventory</title>
+</head>
+
+<body>
+    <!-- background -->
+    <div class="bg"></div>
+
+    <!-- navigation -->
+    <div class="nav-parent">
+        <p class="homepage"><a href="../">home</a></p>
+        <div class=spacer></div>
+        <p class="nav-para"><a href="postcards/index.html">postcards</a></p>
+        <p class="nav-para"><a href="magnets/index.html">magnets</a></p>
+        <p class="nav-para"><a href="misc items/index.html">misc items</a></p>
+        <p class="nav-para"><a href="inventory/index.html">inventory</a></p>
+        <!-- inventory should have a map page in it -->
+    </div>
+
+    <!-- gemini -->
+    <a href="map.html" class="globe-btn">🌍</a>
+
+    <!-- control/filtering buttons -->
+<header class="controls">
+    <button class="filter-btn active" data-group="all">All</button>
+    <button class="filter-btn" data-group="postcard">Postcards</button>
+    <button class="filter-btn" data-group="magnet">Magnets</button>
+    <button class="filter-btn" data-group="misc">Misc</button>
+</header>
+
+<!-- CHECK IF NAMES CORRESPOND -->
+
+<div id="canvas" class="grid-mode">
+    <!-- might also respond to inventory-grid instead of canvas, grid-layout CHANGE AND MAKE SURE ALL SAME-->
+    </div>
+    <!-- gemini end -->
+
+    <!-- javacript file linked -->
+    <script src="inventory.js"></script>
+    <!-- js file for all the data -->
+    <script src="../data.js"></script> 
+
+</body>
+
+</html>
+
