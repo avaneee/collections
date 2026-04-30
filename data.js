@@ -2,10 +2,9 @@
 
 let inventory = [
 
-        // all postcard
+        // all postcards
 
     { 
-        id: 1,
         name: "Amalfi Coast", 
         type: "postcard", 
         frontImg: "../assets/postcardpics/post_amalfi1.webp", 
@@ -15,7 +14,6 @@ let inventory = [
     },
 
     { 
-        id: 2,
         name: "art gal", 
         type: "postcard", 
         frontImg: "../assets/postcardpics/post_artgal1.webp", 
@@ -25,7 +23,6 @@ let inventory = [
     },
 
     { 
-        id: 3,
         name: "gbc", 
         type: "postcard", 
         frontImg: "../assets/postcardpics/post_gbc1.webp", 
@@ -34,7 +31,7 @@ let inventory = [
         loc: "the globe, providence, ri, usa"
     },
 
-        // all magnet
+        // all magnets
 
     { 
         name: "Tokyo Magnet", 
@@ -58,7 +55,123 @@ let inventory = [
         loc: "" 
     },
 
-        // all misc
+        // all misc scraps
+
+    { 
+        name: "receipt", 
+        type: "misc", 
+        frontImg: "../assets/miscpics/scrap1.webp",
+        date: "",
+        loc: "vienna, austria" 
+    },
+    { 
+        name: "receipt", 
+        type: "misc", 
+        frontImg: "../assets/miscpics/scrap2.webp",
+        date: "",
+        loc: "vienna, austria" 
+    },
+    { 
+        name: "receipt", 
+        type: "misc", 
+        frontImg: "../assets/miscpics/scrap3.webp",
+        date: "",
+        loc: "vienna, austria" 
+    },
+    { 
+        name: "receipt", 
+        type: "misc", 
+        frontImg: "../assets/miscpics/scrap4.webp",
+        date: "",
+        loc: "vienna, austria" 
+    },
+    { 
+        name: "receipt", 
+        type: "misc", 
+        frontImg: "../assets/miscpics/scrap5.webp",
+        date: "",
+        loc: "vienna, austria" 
+    },
+    { 
+        name: "receipt", 
+        type: "misc", 
+        frontImg: "../assets/miscpics/scrap6.webp",
+        date: "",
+        loc: "vienna, austria" 
+    },
+    { 
+        name: "metro pass", 
+        type: "misc", 
+        frontImg: "../assets/miscpics/scrap7.webp",
+        date: "",
+        loc: "thomery, france" 
+    },
+    { 
+        name: "museum ticket", 
+        type: "misc", 
+        frontImg: "../assets/miscpics/scrap8.webp",
+        date: "",
+        loc: "paris, france" 
+    },
+    { 
+        name: "souvenir bag", 
+        type: "misc", 
+        frontImg: "../assets/miscpics/scrap9.webp",
+        date: "",
+        loc: "florence, italy" 
+    },
+    { 
+        name: "receipt", 
+        type: "misc", 
+        frontImg: "../assets/miscpics/scrap10.webp",
+        date: "",
+        loc: "vienna, austria" 
+    },
+    { 
+        name: "stamps", 
+        type: "misc", 
+        frontImg: "../assets/miscpics/scrap11.webp",
+        date: "",
+        loc: "florence, italy" 
+    },
+    { 
+        name: "tickets (train & museum)", 
+        type: "misc", 
+        frontImg: "../assets/miscpics/scrap12.webp",
+        date: "",
+        loc: "florence, italy" 
+    },
+
+    { 
+        name: "gym membership", 
+        type: "misc", 
+        frontImg: "../assets/miscpics/scrap13.webp",
+        date: "",
+        loc: "florence, italy" 
+    },
+
+    { 
+        name: "greenhouse ticket", 
+        type: "misc", 
+        frontImg: "../assets/miscpics/scrap14.webp",
+        date: "",
+        loc: "vienna, austria" 
+    },
+
+    { 
+        name: "metro pass", 
+        type: "misc", 
+        frontImg: "../assets/miscpics/scrap18.webp",
+        date: "",
+        loc: "thomery, france" 
+    },
+    { 
+        name: "receipt", 
+        type: "misc", 
+        frontImg: "../assets/miscpics/scrap1.webp",
+        date: "",
+        loc: "vienna, austria" 
+    },
     { 
         name: "Museum Ticket", 
         type: "misc", 
