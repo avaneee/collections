@@ -29,6 +29,11 @@ function renderPile() {
     });
 }
 
+// IMP: DO I WANT THESE ONES TO FLIP AS WELL OR JUST DRAG?
+// can maybe randomise which side appears - front vs back
+// or have a flip all button in the corner?
+// drag and flip both seems a bit tedious
+
 function makeDraggable(el) {
     let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
 
