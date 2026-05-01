@@ -97,57 +97,64 @@ h1{
 }
 
 /* new css for complex one */
-#main-canvas {
-    position: fixed;
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevents scrolling during interaction */
     width: 100vw;
-    height: auto;
-    margin-top: 50px;
+    height: 100vh;
+}
+
+/* Ensure the canvas fills the screen and hides overflow */
+#main-canvas {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
     perspective: 1000px;
 }
 
 .home-item {
     position: absolute;
-    width: 500px;
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 350px; /* Fixed width for predictable grid */
+    transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
     filter: drop-shadow(2px 2px 1px rgba(0,0,0,0.3));
+    z-index: 10;
 }
 
-/* EXPLORE BUTTON */
+/* EXPLORE BUTTON - Rock solid in the center */
 #explore-btn {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 100;
-    padding: 15px 30px;
+    padding: 15px 40px;
     font-family: monospace;
-    font-size: 1.2rem;
-    cursor: pointer;
-    opacity: 0; /* Hidden initially */
-    transition: opacity 0.5s;
-    background: #333;
+    font-size: 1.4rem;
+    background: #1a1a1a;
     color: white;
     border: none;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.2s ease;
 }
 
-/* Hovering over the canvas triggers the grid */
-#main-canvas:hover .home-item {
-    /* transform: translate(0, 0) rotate(0deg) !important; */
-    position: relative; /* This allows them to flow into a grid */
+#explore-btn:hover {
+    background: #444;
+    transform: translate(-50%, -50%) scale(1.05);
 }
 
-#main-canvas:hover #explore-btn {
+/* Show button when hover is active */
+#main-canvas.hover-active #explore-btn {
     opacity: 1;
+    pointer-events: auto;
 }
 
-/* Grid Layout when active */
-#main-canvas:hover {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    padding: 40px;
+/* Optional: Dim the background images slightly when button is active */
+#main-canvas.hover-active .home-item {
+    filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.1)) grayscale(0.2);
 }
 
 /* FINAL NAV OVERLAY */
@@ -178,7 +185,11 @@ h1{
 
 .nav-item img {
     width: 300px;
-    filter: drop-shadow(2px 2px 1px rgba(0,0,0,0.3));
+    transition: transform 0.3s;
+}
+
+.nav-item:hover img {
+    transform: scale(1.05);
 }
 
 .hidden { display: none; }

@@ -34,8 +34,8 @@ body {
     padding: 10px;
     gap: 15px;
     position: fixed;
-    width: 100vh;
-    /* see if this is fine?? */
+    left:0;
+    width: 100%;    /* see if this is fine?? */
     /* but it needs to be responsive to screen changes and rn it doesnt work on a small screen - maybe on a small screen the nav shifts to icons on the side? can work on it later */
     top: 0;
     z-index: 1000;

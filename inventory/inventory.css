@@ -165,7 +165,7 @@ a{
     height: auto; 
     position: relative;
     cursor: pointer;
-    filter: drop-shadow(4px 4px 8px rgba(0,0,0,0.3));
+    filter: drop-shadow(2px 2px 1px rgba(0,0,0,0.3));
 }
 
 .postcard-inner {

@@ -11,7 +11,7 @@ function spawnItem(itemData) {
     img.className = 'misc-item';
     
     // Random Size, Position, and a tiny "wobble" speed
-    const size = Math.random() * 100 + 50;
+    const size = Math.random() * 100 + 280;
     const x = Math.random() * (window.innerWidth - size);
     const y = Math.random() * (window.innerHeight - size);
     const speed = (Math.random() - 0.5) * 2; // Slow rotation: -1 to 1 deg per frame

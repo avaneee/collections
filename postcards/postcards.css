@@ -34,7 +34,8 @@ body {
 	padding: 10px;
 	gap: 15px;
 	position: fixed; 
-    width: 100vh;
+    left:0;
+    width: 100%;
     /* see if this is fine?? */
     /* but it needs to be responsive to screen changes and rn it doesnt work on a small screen - maybe on a small screen the nav shifts to icons on the side? can work on it later */
     top: 0;
@@ -136,8 +137,19 @@ a{
 /* for the button */
 /* FIX THIS */
 .button{
+	position: fixed;
+	top: 400px;
 	text-align: center;
-	padding: 1%;
-	background-color: cadetblue;
-	border-radius: 20%;
+	display: inline-block;
+	left: 0;         /* Start at the left edge */
+    width: 100%;  
+	/* text-decoration: underline; */
+	transition: all 0.2s;
+}
+
+.button:hover {
+	text-decoration: none;
+	font-style: italic;
+	/* background-color: rgba(229, 255, 199, 0.586); */
+	/* scale: 1.05; */
 }
