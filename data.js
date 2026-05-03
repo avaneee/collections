@@ -453,6 +453,13 @@ let inventory = [
         loc: "gstaad, switzerland" 
     },
     { 
+        name: "cog railway", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet8.webp",
+        date: "18 february 2025",
+        loc: "twin mountain, nh, usa" 
+    },
+    { 
         name: "paris bill", 
         type: "magnet", 
         frontImg: "../assets/magnetpics/magnet9.webp",
@@ -585,14 +592,140 @@ let inventory = [
         date: "27 november 2024",
         loc: "new york city, usa" 
     },
-    // add from euclid
     { 
         name: "zion", 
         type: "magnet", 
-        frontImg: "../assets/magnetpics/magnet.webp",
-        date: "unknown",
+        frontImg: "../assets/magnetpics/magnet28.webp",
+        date: "23 november 2025",
         loc: "zion national park, ut, usa" 
     },
+    { 
+        name: "montreal", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet29.webp",
+        date: "17 june 2024",
+        loc: "montreal, canada" 
+    },
+    { 
+        name: "quincy market", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet30.webp",
+        date: "24 november 2024",
+        loc: "boston, ma, usa" 
+    },
+    { 
+        name: "double decker", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet31.webp",
+        date: "8 june 2025",
+        loc: "london, united kingdom" 
+    },
+    { 
+        name: "phone booth", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet32.webp",
+        date: "8 june 2025",
+        loc: "london, united kingdom" 
+    },
+    { 
+        name: "bryce lego", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet33.webp",
+        date: "26 november 2025",
+        loc: "bryce canyon national park, ut, usa" 
+    },
+    { 
+        name: "vegas", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet34.webp",
+        date: "28 november 2025",
+        loc: "las vegas, nv, usa" 
+    },
+    { 
+        name: "parle at khan", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet35.webp",
+        date: "summer 2024",
+        loc: "new delhi, india" 
+    },
+    { 
+        name: "bristol", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet36.webp",
+        date: "4 october 2025",
+        loc: "bristol, ri, usa" 
+    },
+    { 
+        name: "invisible cows", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet37.webp",
+        date: "21 march 2026",
+        loc: "big island, hi, usa" 
+    },
+    { 
+        name: "mass moca", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet38.webp",
+        date: "10 october 2025",
+        loc: "north adams, ma, usa" 
+    },
+    { 
+        name: "sva", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet39.webp",
+        date: "29 november 2024",
+        loc: "new york city, ny, usa" 
+    },
+    { 
+        name: "luau", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet40.webp",
+        date: "26 march 2026",
+        loc: "honolulu, hi, usa" 
+    },
+    { 
+        name: "water fire", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet41.webp",
+        date: "4 october 2025",
+        loc: "providence, ri, usa" 
+    },
+    { 
+        name: "da poke shack", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet42.webp",
+        date: "23 march 2026",
+        loc: "kailua kona, hi, usa" 
+    },
+    { 
+        name: "christmas tree lighting day", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet43.webp",
+        date: "6 december 2025",
+        loc: "newport, ri, usa" 
+    },
+    { 
+        name: "moose", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet44.webp",
+        date: "17 february 2025",
+        loc: "concord, nh, usa" 
+    },
+    { 
+        name: "la isla surf school", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet45.webp",
+        date: "18 may 2025",
+        loc: "charleston, sc, usa" 
+    },
+    { 
+        name: "diet coke", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet46.webp",
+        date: "unknown",
+        loc: "atlanta, ga, usa" 
+    },
+    
 
 
         // all misc scraps

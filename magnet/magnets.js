@@ -1,34 +1,25 @@
+// with added tray stuff
 function renderPile() {
-    const canvas = document.getElementById('canvas');
-    
-    // Only get magnets from data.js inventory
+    const tray = document.getElementById('tray');
+    const handle = document.getElementById('tray-handle');
+    const trayContainer = document.getElementById('tray-container');
+
+    // Toggle Tray Logic
+    handle.onclick = () => {
+        trayContainer.classList.toggle('open');
+        handle.innerText = trayContainer.classList.contains('open') ? "▼ Close" : "▲ Magnets";
+    };
+
     const magnets = inventory.filter(item => item.type === 'magnet');
 
     magnets.forEach(item => {
-        // Create an <img> element instead of a <div>
-    const card = document.createElement('img');
-    card.className = 'magnet';
-    
-    // Set the source directly
-    if (item.frontImg) {
+        const card = document.createElement('img');
+        card.className = 'magnet';
         card.src = item.frontImg;
-    }
 
-    // 1. Initial Random Position
-    // Subtracting 200/300 ensures they don't spawn off-screen
-    const randomX = Math.random() * (window.innerWidth - 200);
-    const randomY = Math.random() * (window.innerHeight - 300);
-    const randomRot = (Math.random() - 0.5) * 40; 
-    
-    card.style.left = `${randomX}px`;
-    card.style.top = `${randomY}px`;
-    card.style.transform = `rotate(${randomRot}deg)`;
-
-    // 2. Dragging Logic
-    makeDraggable(card);
-
-    canvas.appendChild(card);
-});
+        makeDraggable(card);
+        tray.appendChild(card);
+    });
 }
 
 function makeDraggable(el) {
@@ -38,8 +29,21 @@ function makeDraggable(el) {
 
     function dragMouseDown(e) {
         e.preventDefault();
-        // Bring to front on click
-        el.style.zIndex = Number(Date.now()).toString().slice(-5);
+
+        // BRING TO CANVAS: If the magnet is still in the tray, move it to the canvas
+        if (el.parentElement.id === 'tray') {
+            const rect = el.getBoundingClientRect();
+            
+            // Set initial position based on where it was in the tray
+            el.style.left = rect.left + "px";
+            el.style.top = rect.top + "px";
+            
+            // Move to canvas and change styling
+            document.getElementById('canvas').appendChild(el);
+            el.classList.add('on-fridge');
+        }
+
+        el.style.zIndex = Math.floor(Date.now() / 1000);
         
         pos3 = e.clientX;
         pos4 = e.clientY;
