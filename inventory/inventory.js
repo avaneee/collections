@@ -16,6 +16,9 @@ function renderInventory(filterType = 'all') {
         const card = document.createElement('div');
         
         // Add classes: item-card, the type (magnet/misc), and is-postcard if applicable
+        const isMagnet = item.type === 'magnet';
+        card.className = `item-card ${item.type} ${isMagnet ? 'is-magnet' : ''}`;
+
         const isPostcard = item.type === 'postcard';
         card.className = `item-card ${item.type} ${isPostcard ? 'is-postcard' : ''}`;
 

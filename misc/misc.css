@@ -82,6 +82,13 @@ a {
 .misc-item {
     position: absolute;
     transition: transform 0.1s linear; /* Smooths out the rotation */
-    pointer-events: none; /* Allows clicking through them if needed */
     filter: drop-shadow(2px 2px 1px rgba(0,0,0,0.3));
+}
+
+.misc-item:hover{
+    transform: rotate(5deg);
+    cursor: pointer;
+}
+.misc-item:active{
+    z-index: 999;
 }

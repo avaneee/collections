@@ -164,7 +164,7 @@ exploreBtn.addEventListener('click', () => {
     );
 
     navLinksContainer.innerHTML = finalThree.map(item => `
-        <a href="${item.type}s/index.html" class="nav-item">
+        <a href="${item.type}/index.html" class="nav-item">
             <img src="${item.frontImg}">
             <h2 style="font-family: monospace; margin-top: 15px;">${item.type}s</h2>
         </a>

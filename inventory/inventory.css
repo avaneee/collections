@@ -34,7 +34,8 @@ body {
 	padding: 10px;
 	gap: 15px;
 	position: fixed; 
-    width: 100vh;
+    left:0;
+    width: 100%;    
     /* see if this is fine?? */
     /* but it needs to be responsive to screen changes and rn it doesnt work on a small screen - maybe on a small screen the nav shifts to icons on the side? can work on it later */
     top: 0;
@@ -85,7 +86,14 @@ a{
 .item-card {
     width: 300px;
     position: relative;
-    filter: drop-shadow(4px 4px 8px rgba(0,0,0,0.3));
+    filter: drop-shadow(2px 2px 1px rgba(0,0,0,0.3));
+    transition: transform 0.3s ease;
+}
+
+.is-magnet{
+    height: 100px;
+    position: relative;
+    filter: drop-shadow(2px 2px 1px rgba(0,0,0,0.3));
     transition: transform 0.3s ease;
 }
 
@@ -123,38 +131,36 @@ a{
 
 /* OLD gemini */
 
-.globe-btn {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    font-size: 2rem;
-    text-decoration: none;
-    z-index: 1000;
-    transition: transform 0.3s ease;
-}
-
-.globe-btn:hover {
-    transform: scale(1.2) rotate(15deg);
-}
-
 .controls {
     text-align: center;
     padding: 40px 0;
 }
 
 .filter-btn {
-    background: transparent;
-    border: 2px solid #333;
-    padding: 8px 16px;
+    padding: 3px 6px;
     margin: 0 5px;
-    font-family: 'Georgia', serif;
+    position: relative;
+    top: 50px;
+    border: 0px;
+    background-color: transparent;
+    font-family: times;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.5s;
+    filter: drop-shadow(2px,2px,1px,rgba(0, 0, 0, 0.3));
 }
 
+.filter-btn:hover{
+    transform: rotate(5deg);
+    background-color: rgba(255, 255, 255, 0.332);
+}
 .filter-btn.active {
-    background: #333;
-    color: #f4f1ea;
+    font-style: italic;
+    text-decoration: underline;
+    font-weight: 800;
+    background-color: rgba(255, 255, 255, 0.332);
+
+    /* background: #333;
+    color: #f4f1ea; */
 }
 
 /* gemini end */

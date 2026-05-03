@@ -112,14 +112,14 @@ let inventory = [
         date: "23 october 2025",
         loc: "list art building, providence, ri, usa"
     },
-    { 
-        name: "visa on arrival", 
-        type: "postcard", 
-        frontImg: "../assets/postcardpics/post_show2.webp", 
-        backImg: "../assets/postcardpics/post_show1.webp", 
-        date: "17 april 2026",
-        loc: "list art building, providence, ri, usa"
-    },
+    // { 
+    //     name: "visa on arrival", 
+    //     type: "postcard", 
+    //     frontImg: "../assets/postcardpics/post_show2.webp", 
+    //     backImg: "../assets/postcardpics/post_show1.webp", 
+    //     date: "17 april 2026",
+    //     loc: "list art building, providence, ri, usa"
+    // },
     { 
         name: "found at a thrift store", 
         type: "postcard", 
@@ -404,26 +404,196 @@ let inventory = [
         // all magnets
 
     { 
-        name: "Tokyo Magnet", 
+        name: "india gate", 
         type: "magnet", 
-        frontImg: "../assets/miscpics/scrap2.webp",
-        date: "",
-        loc: "" 
+        frontImg: "../assets/magnetpics/magnet1.webp",
+        date: "2026",
+        loc: "new delhi, india" 
     },
     { 
-        name: "Tokyo Magnet", 
+        name: "france", 
         type: "magnet", 
-        frontImg: "../assets/miscpics/scrap2.webp",
-        date: "",
-        loc: "" 
+        frontImg: "../assets/magnetpics/magnet2.webp",
+        date: "june 2025",
+        loc: "paris, france" 
     },
     { 
-        name: "Tokyo Magnet", 
+        name: "castiglioncello", 
         type: "magnet", 
-        frontImg: "../assets/miscpics/scrap2.webp",
-        date: "",
-        loc: "" 
+        frontImg: "../assets/magnetpics/magnet3.webp",
+        date: "18 july 2025",
+        loc: "castiglioncello, italy" 
     },
+    { 
+        name: "palmenhaus", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet4.webp",
+        date: "5 july 2025",
+        loc: "vienna, austria" 
+    },
+    { 
+        name: "munich", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet5.webp",
+        date: "summer 2024",
+        loc: "munich, germany" 
+    },
+    { 
+        name: "glacier 3000", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet6.webp",
+        date: "28 june 2025",
+        loc: "gstaad, switzerland" 
+    },
+    { 
+        name: "swiss", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet7.webp",
+        date: "28 june 2025",
+        loc: "gstaad, switzerland" 
+    },
+    { 
+        name: "paris bill", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet9.webp",
+        date: "unknown",
+        loc: "paris, france" 
+    },
+    { 
+        name: "red fort", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet10.webp",
+        date: "winter 2025",
+        loc: "new delhi, india" 
+    },
+    { 
+        name: "iit", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet11.webp",
+        date: "unknown",
+        loc: "new delhi, india" 
+    },
+    { 
+        name: "andaman", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet12.webp",
+        date: "12 january 2026",
+        loc: "andaman and nicobar islands, india" 
+    },
+    { 
+        name: "elephant", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet13.webp",
+        date: "winter 2025",
+        loc: "new delhi, india" 
+    },
+    { 
+        name: "barcelona", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet14.webp",
+        date: "24 june 2024",
+        loc: "barcelona, spain" 
+    },
+    { 
+        name: "ucl bayern", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet15.webp",
+        date: "summer 2024",
+        loc: "munich, germany" 
+    },
+    { 
+        name: "garda", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet16.webp",
+        date: "12 july 2025",
+        loc: "peschiera del garda, italy" 
+    },
+    { 
+        name: "boar", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet17.webp",
+        date: "25 july 2026",
+        loc: "florence, italy" 
+    },
+    { 
+        name: "marble duomo", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet18.webp",
+        date: "24 july 2026",
+        loc: "florence, italy" 
+    },
+    { 
+        name: "prater", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet19.webp",
+        date: "4 july 2025",
+        loc: "vienna, austria" 
+    },
+    { 
+        name: "navigli", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet20.webp",
+        date: "11 july 2026",
+        loc: "milan, italy" 
+    },
+    { 
+        name: "in pain", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet21.webp",
+        date: "21 june 2025",
+        loc: "paris, france" 
+    },
+    { 
+        name: "kimono lady", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet22.webp",
+        date: "unknown",
+        loc: "unknown" 
+    },
+    { 
+        name: "romeo and juliet", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet23.webp",
+        date: "13 july 2025",
+        loc: "verona, italy" 
+    },
+    { 
+        name: "medici", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet24.webp",
+        date: "22 july 2025",
+        loc: "florence, italy" 
+    },
+    { 
+        name: "guppy by ai", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet25.webp",
+        date: "unknown",
+        loc: "new delhi, india" 
+    },
+    { 
+        name: "chumbak", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet26.webp",
+        date: "unknown birthday",
+        loc: "new delhi, india" 
+    },
+    { 
+        name: "taxi", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet27.webp",
+        date: "27 november 2024",
+        loc: "new york city, usa" 
+    },
+    // add from euclid
+    { 
+        name: "zion", 
+        type: "magnet", 
+        frontImg: "../assets/magnetpics/magnet.webp",
+        date: "unknown",
+        loc: "zion national park, ut, usa" 
+    },
+
 
         // all misc scraps
 
