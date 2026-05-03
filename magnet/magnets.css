@@ -79,10 +79,9 @@ a {
 
 .magnet {
     position: absolute;  /* CRITICAL: top/left only work with absolute/fixed/relative */
-    width: 150px;        /* Magnets need a size to be visible */
-    height: 100px;
-    background: #ccc;    /* Give it a color so you can see it */
-    border: 1px solid #000;
+    width: auto;        /* Magnets need a size to be visible */
+    height: 70px;
     cursor: grab;
+    filter: drop-shadow(4px,2px,1px,rgba(0, 0, 0, 0.8));
     user-select: none;   /* Prevents highlighting text while dragging */
 }

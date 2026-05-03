@@ -5,25 +5,31 @@ function renderPile() {
     const magnets = inventory.filter(item => item.type === 'magnet');
 
     magnets.forEach(item => {
-        const card = document.createElement('div');
-        card.className = 'magnet';
-        
-        // 1. Initial Random Position (The Pile)
-        const randomX = Math.random() * (window.innerWidth - 300);
-        const randomY = Math.random() * (window.innerHeight - 200);
-        const randomRot = (Math.random() - 0.5) * 40; 
-        
-        card.style.left = `${randomX}px`;
-        card.style.top = `${randomY}px`;
-        card.style.transform = `rotate(${randomRot}deg)`;
+        // Create an <img> element instead of a <div>
+    const card = document.createElement('img');
+    card.className = 'magnet';
+    
+    // Set the source directly
+    if (item.frontImg) {
+        card.src = item.frontImg;
+    }
 
-        // 2. Dragging Logic
-        makeDraggable(card);
+    // 1. Initial Random Position
+    // Subtracting 200/300 ensures they don't spawn off-screen
+    const randomX = Math.random() * (window.innerWidth - 200);
+    const randomY = Math.random() * (window.innerHeight - 300);
+    const randomRot = (Math.random() - 0.5) * 40; 
+    
+    card.style.left = `${randomX}px`;
+    card.style.top = `${randomY}px`;
+    card.style.transform = `rotate(${randomRot}deg)`;
 
-        canvas.appendChild(card);
-    });
+    // 2. Dragging Logic
+    makeDraggable(card);
+
+    canvas.appendChild(card);
+});
 }
-
 
 function makeDraggable(el) {
     let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
