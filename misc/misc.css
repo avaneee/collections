@@ -27,7 +27,6 @@ body {
     background-color: rgb(255, 246, 219);
 }
 
-/* navigation */
 .nav-parent {
     display: flex;
     flex-direction: row;
@@ -61,7 +60,6 @@ a:active {
     text-decoration: underline;
 }
 
-/* sorting layout */
 .sort-wrap {
     display: flex;
     flex-direction: column;
@@ -72,30 +70,20 @@ a:active {
     gap: 24px;
 }
 
-/* draggable card */
 #item-area {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 220px;
+    min-height: 180px;
 }
 
 .item-card {
-    background: rgb(255, 246, 219);
-    border: 2px solid rgb(34, 33, 29);
-    border-radius: 5px;
-    padding: 12px;
-    font-family: "typewriter";
-    color: rgb(34, 33, 29);
+    background: none;
+    border: none;
+    padding: 0;
     cursor: grab;
     user-select: none;
-    width: 160px;
-    text-align: center;
     transition: opacity 0.15s, transform 0.15s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
 }
 
 .item-card:active {
@@ -108,34 +96,20 @@ a:active {
 }
 
 .item-card img {
-    width: 130px;
-    height: 130px;
-    object-fit: cover;
+    height: 160px;
+    width: auto;
+    display: block;
     border-radius: 3px;
-    border: 1px solid rgba(34, 33, 29, 0.2);
 }
 
-#card-name {
-    font-size: 13px;
-    font-family: "typewriter";
-}
-
-#card-meta {
-    font-size: 11px;
-    color: rgba(34, 33, 29, 0.5);
-    font-family: "typewriter";
-}
-
-/* status */
 .status-msg {
     font-family: "typewriter";
-    font-size: 13px;
+    font-size: 18px;
     color: rgb(34, 33, 29);
     min-height: 20px;
     text-align: center;
 }
 
-/* trays */
 .trays-row {
     display: flex;
     flex-direction: row;
@@ -154,9 +128,9 @@ a:active {
     flex-direction: column;
     align-items: center;
     padding: 14px 10px;
-    gap: 8px;
-    min-height: 180px;
+    min-height: 250px;
     transition: background 0.15s, border-style 0.15s;
+    position: relative;
 }
 
 .tray.drag-over {
@@ -166,74 +140,68 @@ a:active {
 
 .tray-label {
     font-family: "typewriter";
-    font-size: 13px;
+    font-size: 18px;
     color: rgb(34, 33, 29);
     letter-spacing: 0.04em;
     border-bottom: 1.5px solid rgb(34, 33, 29);
     width: 100%;
     text-align: center;
     padding-bottom: 6px;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 2;
 }
 
 .tray-empty {
     font-family: "typewriter";
-    font-size: 11px;
+    font-size: 15px;
     color: rgba(34, 33, 29, 0.35);
     text-align: center;
     padding: 8px 0;
 }
 
-.tray-item {
+/* pile area inside tray */
+.tray-pile {
+    position: relative;
     width: 100%;
-    border-radius: 3px;
-    overflow: hidden;
-    border: 1.5px solid rgba(34, 33, 29, 0.4);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex: 1;
 }
+
+.tray-item {
+    position: absolute;
+    /* border-radius: 3px; */
+    overflow: hidden;
+    border: 2px solid rgba(255, 246, 219, 0);
+    filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.3));}
 
 .tray-item img {
+    height: 100px;
     width: auto;
-    height: 70px;
-}
-
-.tray-item-name {
-    font-family: "typewriter";
-    font-size: 11px;
-    color: rgb(34, 33, 29);
-    padding: 4px 6px;
-    text-align: center;
-    width: 100%;
+    max-width: 130px;
+    display: block;
+    object-fit: cover;
 }
 
 .tray-item.wrong {
-    border-color: rgba(180, 60, 40, 0.6);
-    opacity: 0.6;
+    /* opacity: 0.45; */
+    border-color:rgba(180, 60, 40, 0.5);
 }
 
-.tray-item.wrong .tray-item-name {
-    text-decoration: line-through;
-    color: rgba(180, 60, 40, 0.8);
-}
-
-/* summary */
 .summary-panel {
-    background: rgb(255, 246, 219);
-    border: 2px solid rgb(34, 33, 29);
+    /* background: rgb(255, 246, 219); */
+    /* border: 2px solid rgb(34, 33, 29); */
     border-radius: 5px;
     padding: 20px 28px;
     font-family: "typewriter";
-    font-size: 13px;
+    font-size: 20px;
     color: rgb(34, 33, 29);
-    max-width: 560px;
+    max-width: 800px;
     width: 100%;
     text-align: center;
 }
 
 .summary-panel h3 {
-    font-size: 15px;
+    font-size: 18px;
     font-family: "typewriter";
     font-weight: normal;
     margin-bottom: 14px;
@@ -257,7 +225,7 @@ a:active {
 }
 
 .summary-col-label {
-    font-size: 12px;
+    font-size: 18px;
     border-bottom: 1px solid rgb(34, 33, 29);
     width: 100%;
     text-align: center;
@@ -271,6 +239,6 @@ a:active {
 
 .summary-accuracy {
     margin-top: 14px;
-    font-size: 12px;
+    font-size: 18px;
     color: rgba(34, 33, 29, 0.6);
 }
