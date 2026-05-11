@@ -4,117 +4,273 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: "typewriter";
+    src: url(../assets/fonts/imposs.woff);
+}
+
 .bg {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    z-index: -1;
-
+    z-index: -999;
     background-image: url("../assets/background/paper1.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-
     filter: contrast(1.1) brightness(0.95);
 }
 
 body {
-    background-color: rgba(255, 192, 203, 0.615);
+    background-color: rgb(255, 246, 219);
 }
 
-/* navigation stuff */
+/* navigation */
 .nav-parent {
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: rgba(255, 246, 219, 0.558);
+    background-color: rgb(255, 246, 219);
     padding: 10px;
     gap: 15px;
     position: fixed;
-    left:0;
+    left: 0;
     width: 100%;
-    /* see if this is fine?? */
-    /* but it needs to be responsive to screen changes and rn it doesnt work on a small screen - maybe on a small screen the nav shifts to icons on the side? can work on it later */
     top: 0;
     z-index: 1000;
-}
-
-.nav-para {
-    background-color: rgba(93, 54, 44, 0.292);
-    display: inline;
-    flex-grow: 1;
-    border-radius: 18px;
-    padding-top: .5%;
-    padding-bottom: .5%;
-    padding-left: 2%;
-    padding-right: 2%;
-    transition: scale .3s, background-color .1s;
-}
-
-.nav-para:hover {
-    scale: 1.1;
-}
-
-.nav-para:active {
-    background-color: rgba(255, 255, 255, 0.571);
-}
-
-a {
-    color: black;
-    text-decoration: none;
 }
 
 .spacer {
     flex-grow: 100;
 }
 
-/* specific to this one */
-/* #misc-container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    background: transparent;
+a {
+    color: rgb(34, 33, 29);
+    text-decoration: none;
+    font-family: "typewriter";
+    font-size: 15px;
 }
 
-.misc-item {
-    position: absolute;
-    transition: transform 0.1s linear; 
-    filter: drop-shadow(2px 2px 1px rgba(0,0,0,0.3));
+a:hover {
+    scale: 1.05;
 }
 
-.misc-item:hover{
-    transform: rotate(5deg);
-    cursor: pointer;
+a:active {
+    text-decoration: underline;
 }
-.misc-item:active{
-    z-index: 999;
-}
- */
 
-.misc-item {
-    position: absolute;
-    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
-    cursor: pointer;
+/* sorting layout */
+.sort-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding-top: 60px;
+    gap: 24px;
+}
+
+/* draggable card */
+#item-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 220px;
+}
+
+.item-card {
+    background: rgb(255, 246, 219);
+    border: 2px solid rgb(34, 33, 29);
+    border-radius: 5px;
+    padding: 12px;
+    font-family: "typewriter";
+    color: rgb(34, 33, 29);
+    cursor: grab;
     user-select: none;
-    /* Apply the floating animation */
-    animation: floatAround 4s ease-in-out infinite alternate;
+    width: 160px;
+    text-align: center;
+    transition: opacity 0.15s, transform 0.15s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
 }
 
-/* We use a random animation delay in JS so they don't all move in sync */
-@keyframes floatAround {
-    0% {
-        transform: rotate(-3deg) scale(0.97);
-    }
-    100% {
-        transform: rotate(3deg) scale(1.03);
-    }
+.item-card:active {
+    cursor: grabbing;
+    transform: scale(1.04);
 }
 
-.misc-item:hover {
-    /* Keeps the animation but brightens or adds a shadow to show interaction */
-    filter: drop-shadow(4px 8px 12px rgba(0,0,0,0.4)) brightness(1.1);
-    z-index: 100;
+.item-card.dragging {
+    opacity: 0.4;
+}
+
+.item-card img {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 3px;
+    border: 1px solid rgba(34, 33, 29, 0.2);
+}
+
+#card-name {
+    font-size: 13px;
+    font-family: "typewriter";
+}
+
+#card-meta {
+    font-size: 11px;
+    color: rgba(34, 33, 29, 0.5);
+    font-family: "typewriter";
+}
+
+/* status */
+.status-msg {
+    font-family: "typewriter";
+    font-size: 13px;
+    color: rgb(34, 33, 29);
+    min-height: 20px;
+    text-align: center;
+}
+
+/* trays */
+.trays-row {
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.tray {
+    width: 180px;
+    background: rgb(255, 246, 219);
+    border: 2px solid rgb(34, 33, 29);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 14px 10px;
+    gap: 8px;
+    min-height: 180px;
+    transition: background 0.15s, border-style 0.15s;
+}
+
+.tray.drag-over {
+    background: rgb(240, 230, 195);
+    border-style: dashed;
+}
+
+.tray-label {
+    font-family: "typewriter";
+    font-size: 13px;
+    color: rgb(34, 33, 29);
+    letter-spacing: 0.04em;
+    border-bottom: 1.5px solid rgb(34, 33, 29);
+    width: 100%;
+    text-align: center;
+    padding-bottom: 6px;
+    margin-bottom: 4px;
+}
+
+.tray-empty {
+    font-family: "typewriter";
+    font-size: 11px;
+    color: rgba(34, 33, 29, 0.35);
+    text-align: center;
+    padding: 8px 0;
+}
+
+.tray-item {
+    width: 100%;
+    border-radius: 3px;
+    overflow: hidden;
+    border: 1.5px solid rgba(34, 33, 29, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tray-item img {
+    width: auto;
+    height: 70px;
+}
+
+.tray-item-name {
+    font-family: "typewriter";
+    font-size: 11px;
+    color: rgb(34, 33, 29);
+    padding: 4px 6px;
+    text-align: center;
+    width: 100%;
+}
+
+.tray-item.wrong {
+    border-color: rgba(180, 60, 40, 0.6);
+    opacity: 0.6;
+}
+
+.tray-item.wrong .tray-item-name {
+    text-decoration: line-through;
+    color: rgba(180, 60, 40, 0.8);
+}
+
+/* summary */
+.summary-panel {
+    background: rgb(255, 246, 219);
+    border: 2px solid rgb(34, 33, 29);
+    border-radius: 5px;
+    padding: 20px 28px;
+    font-family: "typewriter";
+    font-size: 13px;
+    color: rgb(34, 33, 29);
+    max-width: 560px;
+    width: 100%;
+    text-align: center;
+}
+
+.summary-panel h3 {
+    font-size: 15px;
+    font-family: "typewriter";
+    font-weight: normal;
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+}
+
+.summary-grid {
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.summary-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    min-width: 120px;
+}
+
+.summary-col-label {
+    font-size: 12px;
+    border-bottom: 1px solid rgb(34, 33, 29);
+    width: 100%;
+    text-align: center;
+    padding-bottom: 4px;
+    margin-bottom: 4px;
+}
+
+.summary-col-count {
+    font-size: 22px;
+}
+
+.summary-accuracy {
+    margin-top: 14px;
+    font-size: 12px;
+    color: rgba(34, 33, 29, 0.6);
 }

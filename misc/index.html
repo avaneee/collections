@@ -4,34 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- css properties linked -->
     <link rel="stylesheet" href="misc.css">
     <link rel="icon" type="image/png" href="../assets/favicon.png">
     <title>my collection | miscellaneous</title>
 </head>
 
 <body>
-    <!-- background -->
     <div class="bg"></div>
-
-    <!-- navigation -->
     <div class="nav-parent">
-        <p class="homepage"><a href="../">home</a></p>
-        <div class=spacer></div>
-        <p class="nav-para"><a href="postcards/index.html">postcards</a></p>
-        <p class="nav-para"><a href="magnets/index.html">magnets</a></p>
-        <p class="nav-para"><a href="misc/index.html">misc items</a></p>
-        <p class="nav-para"><a href="inventory/index.html">inventory</a></p>
+        <a class="homepage" href="../index.html">home</a>
+        <div class="spacer"></div>
+        <a class="homepage" href="../postcard/index.html">postcards</a>
+        <a class="homepage" href="../magnet/index.html">magnets</a>
+        <a class="homepage" href="../misc/index.html">misc</a>
+        <a class="homepage" href="../inventory/index.html">inventory</a>
     </div>
 
-    <!-- this one should be similar to the loop page on small sites, random sizes, constantly moving/slightly rotating, randomised appearance on load, can have name and location tags on hover potentially -->
-    <div id="misc-container"></div>
+    <div class="sort-wrap">
+        <div id="item-area">
+            <div id="drag-card" class="item-card" draggable="true">
+                <img id="card-img" src="" alt="" />
+                <div id="card-name"></div>
+                <div id="card-meta"></div>
+            </div>
+        </div>
 
-    <!-- javacript files linked -->
+        <div id="status" class="status-msg"></div>
+
+        <div class="trays-row">
+            <div class="tray" id="tray-tickets" data-tray="tickets">
+                <div class="tray-label">tickets</div>
+                <div class="tray-empty" id="empty-tickets">drop here</div>
+            </div>
+            <div class="tray" id="tray-receipts" data-tray="receipts">
+                <div class="tray-label">receipts</div>
+                <div class="tray-empty" id="empty-receipts">drop here</div>
+            </div>
+            <div class="tray" id="tray-misc" data-tray="misc">
+                <div class="tray-label">actually misc</div>
+                <div class="tray-empty" id="empty-misc">drop here</div>
+            </div>
+        </div>
+
+        <div id="summary" class="summary-panel" style="display:none;"></div>
+    </div>
+
     <script src="../data.js"></script>
     <script src="misc.js"></script>
-
-
 </body>
 
 </html>

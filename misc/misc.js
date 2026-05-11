@@ -1,76 +1,116 @@
+const TICKET_KEYWORDS = ["ticket", "stub", "pass", "entry", "admission", "boarding", "voucher"];
+const RECEIPT_KEYWORDS = ["receipt", "invoice", "bill", "check", "payment", "order"];
 
-const container = document.getElementById('misc-container');
-const miscItems = inventory.filter(item => item.type === 'misc');
-
-// Function to check how many items already occupy a space
-function getOverlapCount(rect) {
-    const existing = document.querySelectorAll('.misc-item');
-    let count = 0;
-    
-    existing.forEach(other => {
-        const otherRect = other.getBoundingClientRect();
-        // Check if rectangles overlap
-        const overlap = !(rect.right < otherRect.left || 
-                          rect.left > otherRect.right || 
-                          rect.bottom < otherRect.top || 
-                          rect.top > otherRect.bottom);
-        if (overlap) count++;
-    });
-    return count;
+function inferTray(name) {
+    const lower = name.toLowerCase();
+    if (TICKET_KEYWORDS.some(k => lower.includes(k))) return "tickets";
+    if (RECEIPT_KEYWORDS.some(k => lower.includes(k))) return "receipts";
+    return "misc";
 }
 
-function spawnItem(itemData) {
-    const img = document.createElement('img');
-    img.src = itemData.frontImg;
-    img.className = 'misc-item';
-    
-    const size = Math.random() * 100 + 200; // Adjusted size for better fitting
-    img.style.width = `${size}px`;
+const miscItems = inventory
+    .filter(item => item.type === "misc")
+    .map(item => ({ ...item, correctTray: inferTray(item.name) }))
+    .sort(() => Math.random() - 0.5);
 
-    let x, y, rect;
-    let attempts = 0;
-    const maxAttempts = 50; // Prevent infinite loops if screen is full
+let queue = [...miscItems];
+const trayContents = { tickets: [], receipts: [], misc: [] };
+let correct = 0;
+let total = 0;
 
-    // Try to find a spot where it overlaps 1 or 0 items
-    do {
-        x = Math.random() * (window.innerWidth - size);
-        y = Math.random() * (window.innerHeight - size);
-        
-        // Temporary rect for calculation
-        rect = {
-            left: x,
-            top: y,
-            right: x + size,
-            bottom: y + size
-        };
-        attempts++;
-    } while (getOverlapCount(rect) >= 2 && attempts < maxAttempts);
+const card = document.getElementById("drag-card");
+const cardImg = document.getElementById("card-img");
+const cardName = document.getElementById("card-name");
+const cardMeta = document.getElementById("card-meta");
+const statusEl = document.getElementById("status");
+const itemArea = document.getElementById("item-area");
 
-    img.style.left = `${x}px`;
-    img.style.top = `${y}px`;
-    
-    // Give each item a random animation delay so they move independently
-    img.style.animationDelay = `${Math.random() * -4}s`;
-    // Randomize animation duration slightly for "organic" feel
-    img.style.animationDuration = `${3 + Math.random() * 2}s`;
-
-    container.appendChild(img);
-}
-
-function initializeMisc() {
-    const totalItems = miscItems.length;
-    const instantCount = Math.floor(totalItems * 0.8);
-    const delayedItems = miscItems.slice(instantCount);
-
-    for (let i = 0; i < instantCount; i++) {
-        spawnItem(miscItems[i]);
+function showNext() {
+    if (queue.length === 0) {
+        itemArea.style.display = "none";
+        statusEl.textContent = "";
+        showSummary();
+        return;
     }
 
-    delayedItems.forEach((item) => {
-        const randomDelay = Math.random() * 5000; // Faster spawn for testing
-        setTimeout(() => spawnItem(item), randomDelay);
-    });
+    const item = queue[0];
+    cardImg.src = item.frontImg || "";
+    cardImg.alt = item.name;
+    cardName.textContent = item.name;
+    cardMeta.textContent = [item.date, item.loc].filter(Boolean).join(" · ");
+    statusEl.textContent = `${queue.length} item${queue.length !== 1 ? "s" : ""} left`;
 }
 
-document.addEventListener('DOMContentLoaded', initializeMisc);
+function showSummary() {
+    const panel = document.getElementById("summary");
+    const accuracy = total > 0 ? Math.round((correct / total) * 100) : 0;
 
+    const cols = [
+        { key: "tickets", label: "tickets" },
+        { key: "receipts", label: "receipts" },
+        { key: "misc", label: "actually misc" },
+    ];
+
+    panel.innerHTML = `
+    <h3>all sorted!</h3>
+    <div class="summary-grid">
+    ${cols.map(c => `
+        <div class="summary-col">
+        <div class="summary-col-label">${c.label}</div>
+        <div class="summary-col-count">${trayContents[c.key].length}</div>
+        </div>
+      `).join("")}
+    </div>
+    <div class="summary-accuracy">${accuracy}% sorted correctly</div>
+  `;
+    panel.style.display = "block";
+}
+
+card.addEventListener("dragstart", e => {
+    setTimeout(() => card.classList.add("dragging"), 0);
+});
+
+card.addEventListener("dragend", () => {
+    card.classList.remove("dragging");
+});
+
+document.querySelectorAll(".tray").forEach(tray => {
+    tray.addEventListener("dragover", e => {
+        e.preventDefault();
+        tray.classList.add("drag-over");
+    });
+
+    tray.addEventListener("dragleave", () => {
+        tray.classList.remove("drag-over");
+    });
+
+    tray.addEventListener("drop", e => {
+        e.preventDefault();
+        tray.classList.remove("drag-over");
+
+        if (queue.length === 0) return;
+        const item = queue[0];
+        const trayKey = tray.dataset.tray;
+        const isCorrect = item.correctTray === trayKey;
+
+        const empty = tray.querySelector(".tray-empty");
+        if (empty) empty.style.display = "none";
+
+        const chip = document.createElement("div");
+        chip.className = "tray-item" + (isCorrect ? "" : " wrong");
+        chip.innerHTML = `
+      <img src="${item.frontImg || ""}" alt="${item.name}" />
+      <div class="tray-item-name">${item.name}</div>
+    `;
+        tray.appendChild(chip);
+
+        trayContents[trayKey].push(item);
+        total++;
+        if (isCorrect) correct++;
+
+        queue.shift();
+        showNext();
+    });
+});
+
+showNext();
