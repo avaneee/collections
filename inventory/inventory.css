@@ -1,8 +1,8 @@
 /* Add styles to all elements */
 * {
-	margin: 0; 
-	padding: 0; 
-	box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 @font-face {
@@ -62,26 +62,51 @@ a:active {
 }
 
 /* Container for the grid */
+/* Container for the grid */
 #canvas {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-    padding: 50px;
+    column-count: 4;
+    column-gap: 30px;
+    padding: 80px 50px 50px;
+    align-items: center;
+}
+
+/* When filtered to postcards only, 3 columns */
+#canvas.filter-postcard {
+    column-count: 3;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+#canvas.filter-postcard .item-card.postcard {
+    width: 100%;
+    margin-left: 0;
+}
+
+/* Make every card break-inside safe for masonry */
+.item-card {
+    break-inside: avoid;
+    width: 100%;
+    position: relative;
+    filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+    margin-bottom: 30px;
+}
+
+/* Magnets and misc: constrain so they're not oversized */
+.item-card.magnet,
+.item-card.misc {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Base Card Style */
-.item-card {
-    width: 300px;
-    position: relative;
-    filter: drop-shadow(2px 2px 1px rgba(0,0,0,0.3));
-    transition: transform 0.3s ease;
-}
 
-.is-magnet{
+
+.is-magnet {
     height: 100px;
     position: relative;
-    filter: drop-shadow(2px 2px 1px rgba(0,0,0,0.3));
+    filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.3));
     transition: transform 0.3s ease;
 }
 
@@ -103,7 +128,8 @@ a:active {
     left: 0;
     width: 100%;
     height: 100%;
-    display: none; /* Hide back by default */
+    display: none;
+    /* Hide back by default */
 }
 
 /* Only flip if it is a postcard */
@@ -131,21 +157,23 @@ a:active {
     top: 50px;
     border: 0px;
     background-color: transparent;
-    font-family: times;
+    font-family: "typewriter";
     cursor: pointer;
-    transition: all 0.5s;
-    filter: drop-shadow(2px,2px,1px,rgba(0, 0, 0, 0.3));
+    font-size: 16px;
+    transition: all 0.3s;
+    filter: drop-shadow(2px, 2px, 1px, rgba(0, 0, 0, 0.3));
 }
 
-.filter-btn:hover{
-    transform: rotate(5deg);
-    background-color: rgba(255, 255, 255, 0.332);
+.filter-btn:hover {
+    transform: scale(1.05);
+    text-decoration: underline;
 }
+
 .filter-btn.active {
     font-style: italic;
     text-decoration: underline;
     font-weight: 800;
-    background-color: rgba(255, 255, 255, 0.332);
+    /* background-color: rgba(255, 255, 255, 0.332); */
 
     /* background: #333;
     color: #f4f1ea; */
@@ -156,10 +184,10 @@ a:active {
 /* for postcards specifically */
 .postcard {
     width: 300px;
-    height: auto; 
+    height: auto;
     position: relative;
     cursor: pointer;
-    filter: drop-shadow(2px 2px 1px rgba(0,0,0,0.3));
+    filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.3));
 }
 
 .postcard-inner {
@@ -180,7 +208,8 @@ a:active {
     left: 0;
     width: 100%;
     height: 100%;
-    display: none; /* Hidden by default */
+    display: none;
+    /* Hidden by default */
 }
 
 /* On hover, hide front and show back instantly */
