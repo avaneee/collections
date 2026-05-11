@@ -1,7 +1,7 @@
 * {
-	margin: 0; 
-	padding: 0; 
-	box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
 }
 
 p{
@@ -15,94 +15,92 @@ p{
     src: url(assets/fonts/imposs.woff);
 }
 .bg{
-	position: fixed;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
     z-index: -1;
 
-	background-image: url("assets/background/paper1.jpg");
+    background-image: url("assets/background/paper1.jpg");
     background-repeat: no-repeat;
     background-position: center;
-	background-size: cover; 
+    background-size: cover; 
 
-	filter: contrast(1.1) brightness(0.95);
+    filter: contrast(1.1) brightness(0.95);
 }
 
 body {
-	background-color: rgb(255, 246, 219);
+    background-color: rgb(255, 246, 219);
 }
 
 /* navigation stuff */
 .nav-parent{
-	display: flex;
+    display: flex;
     flex-direction: row;
     align-items: center;
-	background-color: rgb(255, 246, 219);
-	padding: 10px;
-	gap: 15px;
-	position: fixed; 
+    background-color: rgb(255, 246, 219);
+    padding: 10px;
+    gap: 15px;
+    position: fixed; 
     left:0;
     width: 100%;
-    /* see if this is fine?? */
-    /* but it needs to be responsive to screen changes and rn it doesnt work on a small screen - maybe on a small screen the nav shifts to icons on the side? can work on it later */
     top: 0;
     z-index: 1000;  
 }
 
 .nav-para{
-	background-color: rgba(93, 54, 44, 0.292);
-	display: inline; 
-	flex-grow: 1;
-	border-radius: 18px;
-	padding-top: .5%;
-	padding-bottom: .5%;
-	padding-left: 2%;
-	padding-right: 2%;
-	transition: scale .3s, background-color .1s;
-}
-
-.nav-para:hover{
-	scale: 1.1;
+    background-color: rgba(93, 54, 44, 0.292);
+    display: inline; 
+    flex-grow: 1;
+    border-radius: 18px;
+    padding-top: .5%;
+    padding-bottom: .5%;
+    padding-left: 2%;
+    padding-right: 2%;
+    transition: scale .3s, background-color .1s;
 }
 
 .nav-para:active{
-	background-color: rgb(34, 33, 29);
+    background-color: rgb(34, 33, 29);
 }
 
 a{
-	color: rgb(34, 33, 29);
-	text-decoration: none;
+    color: rgb(34, 33, 29);
+    text-decoration: none;
+    font-family: "typewriter";
+    font-size: 15px;
 }
 
+a:hover{
+    scale: 1.05;
+
+}
 a:active{
-    color: rgb(255, 246, 219);    
+    text-decoration: underline;
 }
 
 .spacer{
-	flex-grow: 100;
+    flex-grow: 100;
 }
 
-/* is this needed? */
 .homepage{
-	display: inline; 
-	flex-grow: 1;
-	transition: flex-grow .3s;
+    display: inline; 
+    flex-grow: 1;
+    transition: flex-grow .3s;
 }
 
-/* and this also? */
 .grid-parent{
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	padding: 20px;
-	gap: 30px;
-	row-gap: 500px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 20px;
+    gap: 30px;
+    row-gap: 500px;
 }
 
 /* for scrolling rack */
 .scroll-container {
-    height: 250vh; /* Total scroll length (about 5 screens worth) */
+    height: 250vh;
     position: relative;
     transition: .1s;
 }
@@ -130,28 +128,186 @@ a:active{
 .para-text{
     font-family: "typewriter";
     font-size: 22px;
-	position: fixed;
-	top: 720px;
-	text-align: center;
-	display: inline-block;
+    position: fixed;
+    top: 720px;
+    text-align: center;
+    display: inline-block;
 }
-/* for the button */
+
 .button{
     font-family: "typewriter";
     font-size: 22px;
-	position: fixed;
-	top: 720px;
-	text-align: center;
-	display: inline-block;
-	left: 0;         /* Start at the left edge */
+    position: fixed;
+    top: 720px;
+    text-align: center;
+    display: inline-block;
+    left: 0;
     width: 100%;  
-	/* text-decoration: underline; */
-	transition: all 0.2s;
+    transition: all 0.2s;
 }
 
 .button:hover {
-	text-decoration: underline;
-	font-style: italic;
-	/* background-color: rgba(229, 255, 199, 0.586); */
-	/* scale: 1.05; */
+    text-decoration: underline;
+    font-style: italic;
 }
+
+/* ── intro overlay ── */
+.intro-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background-color: rgb(255, 246, 219);
+    background-image: url("assets/background/paper1.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    filter: contrast(1.1) brightness(0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    transition: opacity 0.6s ease;
+}
+
+.intro-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.intro-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    max-width: 380px;
+    text-align: center;
+    filter: none;
+    z-index: 1;
+}
+
+.intro-text {
+    font-family: "typewriter";
+    font-size: 20px;
+    color: rgb(34, 33, 29);
+    line-height: 1.75;
+    min-height: 4em;
+    filter: none;
+}
+
+.intro-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background: rgb(34, 33, 29);
+    vertical-align: text-bottom;
+    margin-left: 1px;
+    animation: cursorBlink 0.7s steps(1) infinite;
+}
+
+@keyframes cursorBlink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
+
+.intro-continue {
+    font-family: "typewriter";
+    font-size: 20px;
+    color: rgb(34, 33, 29);
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    filter: none;
+    cursor: pointer;
+}
+
+.intro-continue.visible {
+    opacity: 1;
+}
+
+.intro-continue:hover {
+    text-decoration: underline;
+    font-style: italic;
+}
+
+.intro-side {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    filter: none;
+    z-index: 1;
+}
+
+.intro-img-slot {
+    width: 120px;
+    height: auto;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.intro-img-slot img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(1px, 1px,2px, rgba(0, 0, 0, 0.3));
+}
+.intro-img-slot:hover {
+    transform: rotate(10deg);
+}
+
+/* ── rack nav items ── */
+.rack-nav-side {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    z-index: 100;
+}
+
+/* new nav stuff */
+.rack-nav-side--left  { left: 132px;  }
+.rack-nav-side--right { right: 132px; }
+
+.rack-nav-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: transform 0.2s, opacity 0.2s;
+    opacity: 0.85;
+}
+
+.rack-nav-card:hover {
+    transform: translateY(-3px);
+    opacity: 1;
+}
+
+.rack-nav-card img {
+    width: 180px;
+    height: auto;
+    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
+}
+
+.rack-nav-card p {
+    font-family: "typewriter";
+    font-size: 19px;
+    color: rgb(34, 33, 29);
+    text-align: center;
+}
+
+.intro-side--left .intro-img-slot:nth-child(1) { transform: translateY(12px) rotate(-3deg); }
+.intro-side--left .intro-img-slot:nth-child(2) { transform: translateY(12px) rotate(2deg); }
+.intro-side--right .intro-img-slot:nth-child(1){ transform: translateY(12px) rotate(4deg);  }
+.intro-side--right .intro-img-slot:nth-child(2){ transform: translateY(12px) rotate(-2deg); }
+
+.intro-img-slot.visible {
+    opacity: 1;
+}
+
+.intro-side--left .intro-img-slot:nth-child(1).visible  { transform: translateY(0) rotate(-3deg); }
+.intro-side--left .intro-img-slot:nth-child(2).visible  { transform: translateY(0) rotate(2deg);  }
+.intro-side--right .intro-img-slot:nth-child(1).visible { transform: translateY(0) rotate(4deg);  }
+.intro-side--right .intro-img-slot:nth-child(2).visible { transform: translateY(0) rotate(-2deg); }

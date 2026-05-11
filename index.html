@@ -4,30 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- css properties linked -->
     <link rel="stylesheet" href="homepage.css">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <title>my collection</title>
 </head>
 
 <body>
+    <!-- intro overlay -->
+    <div class="intro-overlay" id="introOverlay">
+        <div class="intro-side intro-side--left">
+            <div class="intro-img-slot" id="introImg0"></div>
+            <div class="intro-img-slot" id="introImg2"></div>
+        </div>
+        <div class="intro-center">
+            <p class="intro-text" id="introText"><span class="intro-cursor"></span></p>
+            <a class="intro-continue" id="introContinue" href="#">continue</a>
+        </div>
+        <div class="intro-side intro-side--right">
+            <div class="intro-img-slot" id="introImg1"></div>
+            <div class="intro-img-slot" id="introImg3"></div>
+        </div>
+    </div>
+
     <!-- background -->
     <div class="bg"></div>
 
     <!-- navigation -->
     <div class="nav-parent">
-        <p class="homepage"><a href="../">home</a></p>
+        <a class="homepage" href="../">home</a>
         <div class=spacer></div>
-        <p class="nav-para"><a href="postcard/index.html">postcards</a></p>
-        <p class="nav-para"><a href="magnet/index.html">magnets</a></p>
-        <p class="nav-para"><a href="misc/index.html">misc</a></p>
-        <p class="nav-para"><a href="inventory/index.html">inventory</a></p>
-        <!-- inventory should have a map page in it -->
+        <a class="homepage" href="postcard/index.html">postcards</a>
+        <a class="homepage" href="magnet/index.html">magnets</a>
+        <a class="homepage" href="misc/index.html">misc</a>
+        <a class="homepage" href="inventory/index.html">inventory</a>
     </div>
 
-    <!-- postcard rack images that change on scroll {illusion of rotation} -->
+    <!-- postcard rack -->
     <div class="scroll-container">
         <div class="sticky-rack">
+            <!-- actual rack -->
             <img src="assets/rack/rack1.webp" class="rack-frame active" alt="Frame 1">
             <img src="assets/rack/rack2.webp" class="rack-frame" alt="Frame 2">
             <img src="assets/rack/rack3.webp" class="rack-frame" alt="Frame 3">
@@ -37,13 +52,18 @@
             <img src="assets/rack/rack7.webp" class="rack-frame" alt="Frame 7">
             <img src="assets/rack/rack8.webp" class="rack-frame" alt="Frame 8">
             <img src="assets/rack/rack9.webp" class="rack-frame" alt="Frame 9">
+
+            <!-- rack nav — left -->
+            <div class="rack-nav-side rack-nav-side--left" id="rackNavLeft"></div>
+
+            <!-- rack nav — right -->
+            <div class="rack-nav-side rack-nav-side--right" id="rackNavRight"></div>
         </div>
     </div>
 
     <!-- explore -->
-    <p><a href="explore/index.html" class="button">explore</a></p>
+    <!-- <p><a href="explore/index.html" class="button">explore</a></p> -->
 
-    <!-- javacript file linked -->
     <script src="homepage.js"></script>
 </body>
 

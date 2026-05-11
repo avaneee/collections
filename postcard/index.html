@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- css properties linked -->
-    <link rel="stylesheet" href="postcards.css">
-    <link rel="icon" type="image/png" href="../assets/favicon.png">
-    <title>my collection | postcards</title>
+        <link rel="stylesheet" href="scatter.css">
+
+    <link rel="icon" type="image/png" href="../../assets/favicon.png">
+    <title>my collection | pile</title>
 </head>
 
 <body>
@@ -16,35 +15,25 @@
 
     <!-- navigation -->
     <div class="nav-parent">
-        <p class="homepage"><a href="../">home</a></p>
+        <a class="homepage" href="../index.html">home</a>
         <div class=spacer></div>
-        <p class="nav-para"><a href="postcards/index.html">postcards</a></p>
-        <p class="nav-para"><a href="magnets/index.html">magnets</a></p>
-        <p class="nav-para"><a href="misc items/index.html">misc items</a></p>
-        <p class="nav-para"><a href="inventory/index.html">inventory</a></p>
-        <!-- inventory should have a globe page in it -->
+        <a class="homepage" href="../">postcards</a>
+        <a class="homepage" href="../magnet/index.html">magnets</a>
+        <a class="homepage" href="../misc/index.html">misc</a>
+        <a class="homepage" href="../inventory/index.html">inventory</a>
     </div>
 
-    <!-- postcard rack images that change on scroll {illusion of rotation} -->
-    <div class="scroll-container">
-        <div class="sticky-rack">
-            <img src="../assets/rack/rack1.webp" class="rack-frame active" alt="Frame 1">
-            <img src="../assets/rack/rack2.webp" class="rack-frame" alt="Frame 2">
-            <img src="../assets/rack/rack3.webp" class="rack-frame" alt="Frame 3">
-            <img src="../assets/rack/rack4.webp" class="rack-frame" alt="Frame 4">
-            <img src="../assets/rack/rack5.webp" class="rack-frame" alt="Frame 5">
-            <img src="../assets/rack/rack6.webp" class="rack-frame" alt="Frame 6">
-            <img src="../assets/rack/rack7.webp" class="rack-frame" alt="Frame 7">
-            <img src="../assets/rack/rack8.webp" class="rack-frame" alt="Frame 8">
-            <img src="../assets/rack/rack9.webp" class="rack-frame" alt="Frame 9">
-        </div>
-    </div>
 
-    <!-- sort through the pile button -->
-    <p><a href="../scatter/index.html" class="button">sort through the pile</a></p>
+    <!-- This is the container where all the postcards will be "dropped" -->
+    <main id="canvas">
+    </main>
 
-    <!-- javacript file linked -->
-    <script src="postcards.js"></script>
+    <!-- fix this  -->
+    <p>wow that was a lot of sorting</p>
+
+    <!-- change it from a div to the image itself? because the way the postcards are rn the drop shadow is a bit weird -->
+    <script src="scatter.js"></script>
+    <script src="../data.js"></script>
 </body>
-
 </html>
+

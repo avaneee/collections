@@ -44,7 +44,7 @@ body {
 
 .nav-para{
 	background-color: rgba(93, 54, 44, 0.292);
-	display: inline; 
+	display: inline-block; 
 	flex-grow: 1;
 	border-radius: 18px;
 	padding-top: .5%;
