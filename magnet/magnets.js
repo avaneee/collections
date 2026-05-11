@@ -1,50 +1,45 @@
-// with added tray stuff
-function renderPile() {
-    const tray = document.getElementById('tray');
-    const handle = document.getElementById('tray-handle');
-    const trayContainer = document.getElementById('tray-container');
+let magnetIndex = 0;
+let currentMagnet = null;
 
-    // Toggle Tray Logic
-    handle.onclick = () => {
-        trayContainer.classList.toggle('open');
-        handle.innerText = trayContainer.classList.contains('open') ? "▼ Close" : "▲ Magnets";
-    };
+function renderNext() {
+    const tray = document.getElementById('tray');
+    tray.innerHTML = '';
 
     const magnets = inventory.filter(item => item.type === 'magnet');
+    if (magnetIndex >= magnets.length) {
+        tray.innerHTML = '<p style="font-family: typewriter; color: #5d362c; text-align:center;">all done!</p>';
+        return;
+    }
 
-    magnets.forEach(item => {
-        const card = document.createElement('img');
-        card.className = 'magnet';
-        card.src = item.frontImg;
-
-        makeDraggable(card);
-        tray.appendChild(card);
-    });
+    const item = magnets[magnetIndex];
+    const card = document.createElement('img');
+    card.className = 'magnet';
+    card.src = item.frontImg;
+    makeDraggable(card);
+    tray.appendChild(card);
+    currentMagnet = card;
 }
 
 function makeDraggable(el) {
     let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-
     el.onmousedown = dragMouseDown;
 
     function dragMouseDown(e) {
         e.preventDefault();
 
-        // BRING TO CANVAS: If the magnet is still in the tray, move it to the canvas
+        // hide tray while dragging
+        document.getElementById('tray-container').style.opacity = '0';
+        document.getElementById('tray-container').style.pointerEvents = 'none';
+
         if (el.parentElement.id === 'tray') {
             const rect = el.getBoundingClientRect();
-            
-            // Set initial position based on where it was in the tray
             el.style.left = rect.left + "px";
             el.style.top = rect.top + "px";
-            
-            // Move to canvas and change styling
             document.getElementById('canvas').appendChild(el);
             el.classList.add('on-fridge');
         }
 
         el.style.zIndex = Math.floor(Date.now() / 1000);
-        
         pos3 = e.clientX;
         pos4 = e.clientY;
         document.onmouseup = closeDragElement;
@@ -56,7 +51,6 @@ function makeDraggable(el) {
         pos2 = pos4 - e.clientY;
         pos3 = e.clientX;
         pos4 = e.clientY;
-        
         el.style.top = (el.offsetTop - pos2) + "px";
         el.style.left = (el.offsetLeft - pos1) + "px";
     }
@@ -64,7 +58,26 @@ function makeDraggable(el) {
     function closeDragElement() {
         document.onmouseup = null;
         document.onmousemove = null;
+
+        // show tray again
+        document.getElementById('tray-container').style.opacity = '1';
+        document.getElementById('tray-container').style.pointerEvents = 'auto';
+
+        const trayContainer = document.getElementById('tray-container');
+        const trayRect = trayContainer.getBoundingClientRect();
+        const elRect = el.getBoundingClientRect();
+
+        const droppedOnFridge =
+            elRect.right < trayRect.left ||
+            elRect.left > trayRect.right ||
+            elRect.bottom < trayRect.top ||
+            elRect.top > trayRect.bottom;
+
+        if (droppedOnFridge) {
+            magnetIndex++;
+            renderNext();
+        }
     }
 }
 
-document.addEventListener('DOMContentLoaded', renderPile);
+document.addEventListener('DOMContentLoaded', renderNext);
