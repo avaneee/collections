@@ -11,26 +11,39 @@
 </head>
 
 <body>
+    <!-- background -->
     <div class="bg"></div>
 
-    <header id="hero-text">
-        <p>
-            <span>i</span> <span>like</span> <span>to</span> <span>collect</span> <span>things,</span>
-            <br>
-            <span>so</span> <span>i</span> <span>made</span> <span>a</span> <span>website</span>
-        </p>
-    </header>
-
-    <div id="main-canvas" class="pile-active">
-        <button id="explore-btn">click here to explore</button>
-        </div>
-
-    <div id="nav-overlay" class="hidden">
-        <div class="nav-links">
-            </div>
+    <!-- navigation -->
+    <div class="nav-parent">
+        <p class="homepage"><a href="../">home</a></p>
+        <div class=spacer></div>
+        <p class="nav-para"><a href="postcard/index.html">postcards</a></p>
+        <p class="nav-para"><a href="magnet/index.html">magnets</a></p>
+        <p class="nav-para"><a href="misc/index.html">misc</a></p>
+        <p class="nav-para"><a href="inventory/index.html">inventory</a></p>
+        <!-- inventory should have a map page in it -->
     </div>
-    <!-- making separate data for homepage - doesn't need everything -->
-    <!-- <script src="data.js"></script> -->
+
+    <!-- postcard rack images that change on scroll {illusion of rotation} -->
+    <div class="scroll-container">
+        <div class="sticky-rack">
+            <img src="assets/rack/rack1.webp" class="rack-frame active" alt="Frame 1">
+            <img src="assets/rack/rack2.webp" class="rack-frame" alt="Frame 2">
+            <img src="assets/rack/rack3.webp" class="rack-frame" alt="Frame 3">
+            <img src="assets/rack/rack4.webp" class="rack-frame" alt="Frame 4">
+            <img src="assets/rack/rack5.webp" class="rack-frame" alt="Frame 5">
+            <img src="assets/rack/rack6.webp" class="rack-frame" alt="Frame 6">
+            <img src="assets/rack/rack7.webp" class="rack-frame" alt="Frame 7">
+            <img src="assets/rack/rack8.webp" class="rack-frame" alt="Frame 8">
+            <img src="assets/rack/rack9.webp" class="rack-frame" alt="Frame 9">
+        </div>
+    </div>
+
+    <!-- explore -->
+    <p><a href="explore/index.html" class="button">explore</a></p>
+
+    <!-- javacript file linked -->
     <script src="homepage.js"></script>
 </body>
 

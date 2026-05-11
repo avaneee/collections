@@ -131,16 +131,24 @@ a {
 
 /* Update magnet styling for the tray */
 .magnet {
-    height: 120px; /* Size in the tray */
+    height: 80px; /* Size in the tray */
     width: auto;
     cursor: grab;
     position: relative; /* Not absolute while in the tray! */
     flex-shrink: 0;
     user-select: none;
+    filter: drop-shadow(2px, 2px, 4px,rgba(0, 0, 0, 0.8));
+
 }
 
 /* When the magnet is on the fridge, we switch it to absolute */
 .on-fridge {
     position: absolute;
-    height: 70px; /* Make it bigger when on the fridge if you want */
+    height: 70px; 
+    filter: drop-shadow(1px, 1px, 2px,rgba(0, 0, 0, 0.3));
 }
+
+/* .on-fridge:hover {
+    position: absolute;
+    scale: 1.05; 
+} */

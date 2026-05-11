@@ -23,4 +23,3 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// in the background i want postcards randomly appearing and moving everywhere?

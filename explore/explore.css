@@ -12,7 +12,7 @@ p{
 
 @font-face {
     font-family: "typewriter";
-    src: url(assets/fonts/imposs.woff);
+    src: url(../assets/fonts/imposs.woff);
 }
 .bg{
 	position: fixed;
@@ -22,7 +22,7 @@ p{
     height: 100vh;
     z-index: -1;
 
-	background-image: url("assets/background/paper1.jpg");
+	background-image: url("../assets/background/paper1.jpg");
     background-repeat: no-repeat;
     background-position: center;
 	background-size: cover; 
@@ -84,48 +84,6 @@ a:active{
 	flex-grow: 100;
 }
 
-/* is this needed? */
-.homepage{
-	display: inline; 
-	flex-grow: 1;
-	transition: flex-grow .3s;
-}
-
-/* and this also? */
-.grid-parent{
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	padding: 20px;
-	gap: 30px;
-	row-gap: 500px;
-}
-
-/* for scrolling rack */
-.scroll-container {
-    height: 250vh; /* Total scroll length (about 5 screens worth) */
-    position: relative;
-    transition: .1s;
-}
-
-.sticky-rack {
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.rack-frame {
-    position: absolute;
-    max-height: 80vh;
-    width: auto;
-    opacity: 0;
-}
-
-.rack-frame.active {
-    opacity: 1;
-}
 
 .para-text{
     font-family: "typewriter";
@@ -134,24 +92,4 @@ a:active{
 	top: 720px;
 	text-align: center;
 	display: inline-block;
-}
-/* for the button */
-.button{
-    font-family: "typewriter";
-    font-size: 22px;
-	position: fixed;
-	top: 720px;
-	text-align: center;
-	display: inline-block;
-	left: 0;         /* Start at the left edge */
-    width: 100%;  
-	/* text-decoration: underline; */
-	transition: all 0.2s;
-}
-
-.button:hover {
-	text-decoration: underline;
-	font-style: italic;
-	/* background-color: rgba(229, 255, 199, 0.586); */
-	/* scale: 1.05; */
 }
